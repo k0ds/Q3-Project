@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/media/videos/graph/480p15/partial_movie_files/LogScalingExample/4266129954_465996974_223132457.mp4'
+file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/media/videos/graph/480p15/partial_movie_files/LogScalingExample/1442284246_3047616404_223132457.mp4'
+file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/media/videos/graph/480p15/partial_movie_files/LogScalingExample/1442284246_1446904557_1586851471.mp4'
