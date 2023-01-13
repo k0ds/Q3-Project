@@ -59,7 +59,7 @@ class LogScalingExample(Scene):
 
 
         exp1 = Text('The x-intercepts of the graphed quadratic are equal to its factored form', color=BLUE).scale(0.5).to_edge(UP, buff=0.1)
-        10, 13
+       # 10, 13
         x = ax.get_x_axis()
         y = ax.get_y_axis()
        
@@ -106,7 +106,7 @@ class LogScalingExample(Scene):
         
 
 
-        self.play(AddTextLetterByLetter(exp1, time_per_char=0.1))
+        self.play(AddTextLetterByLetter(exp1, time_per_char=0.01))
         
 
 
@@ -125,7 +125,8 @@ class LogScalingExample(Scene):
         self.play(FadeOut(exp1, shift=DOWN))
 
         self.play(equationWithnum.animate.next_to(equation, UP))
-        #box1 = SurroundingRectangle(equationWithnum[])
+       #(x + 2) (x - 5)
+       #2 and 5 should move in from factor1 and factor2
 
         #show factor 1 and 2 convert into factored with cool transformation
         #maybe use transformMatchingTex
