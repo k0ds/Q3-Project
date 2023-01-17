@@ -31,6 +31,8 @@ class LogScalingExample(Scene):
         
         
         equationWithnum =  MathTex(eq, substrings_to_isolate='7,10')
+
+
         
         
 
@@ -51,15 +53,22 @@ class LogScalingExample(Scene):
         factor2.set_color_by_tex('5', ORANGE)
         factor2.set_color_by_tex('10', BLUE)
 
+        FacEq1 = MathTex(r"(x + 2)", substrings_to_isolate="2")
+        FacEq2 = MathTex(r"(x - 5)", substrings_to_isolate="5")
+        FacEq1.set_color_by_tex("2", GREEN)
+        FacEq2.set_color_by_tex("5", ORANGE)
+
+
 
 
         factoredequation = MathTex(r"(x + 2)(x - 5)", substrings_to_isolate="2,5").to_edge(UP)
         factoredequation.set_color_by_tex("2", GREEN)
         factoredequation.set_color_by_tex("5", ORANGE)
-
+        exp2 = Text("2 and 5 sum to 7 and multiply to 10, which represents a and b of the quadratic.", color=WHITE).scale(0.5).to_edge(UP)
 
         exp1 = Text('The x-intercepts of the graphed quadratic are equal to its factored form', color=BLUE).scale(0.5).to_edge(UP, buff=0.1)
        # 10, 13
+
         x = ax.get_x_axis()
         y = ax.get_y_axis()
        
@@ -125,6 +134,21 @@ class LogScalingExample(Scene):
         self.play(FadeOut(exp1, shift=DOWN))
 
         self.play(equationWithnum.animate.next_to(equation, UP))
+        self.play(FadeIn(exp2, shift=DOWN))
+
+       
+
+
+
+        self.play(FacEq1.animate.next_to(factor2, DOWN))
+        self.play(FacEq2.animate.next_to(factor1, DOWN))
+
+        self.wait(5)
+         
+
+
+
+
        #(x + 2) (x - 5)
        #2 and 5 should move in from factor1 and factor2
 
