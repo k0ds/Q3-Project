@@ -64,10 +64,19 @@ class LogScalingExample(Scene):
         factoredequation = MathTex(r"(x + 2)(x - 5)", substrings_to_isolate="2,5").to_edge(UP)
         factoredequation.set_color_by_tex("2", GREEN)
         factoredequation.set_color_by_tex("5", ORANGE)
+        
+
         exp2 = Text("2 and 5 sum to 7 and multiply to 10, which represents a and b of the quadratic.", color=WHITE).scale(0.5).to_edge(UP)
 
         exp1 = Text('The x-intercepts of the graphed quadratic are equal to its factored form', color=BLUE).scale(0.5).to_edge(UP, buff=0.1)
+
+        applicationText = Text("The quadratic can be used to model projectile trajectories.", color=YELLOW, font_size=25).to_edge(DOWN)
        # 10, 13
+        factoredetext = Text("Factored Form", color=WHITE, font_size=25).to_edge(DOWN)
+
+        factoredequation2 = MathTex(r"(x + 2)(x - 5)", substrings_to_isolate="2,5")
+        factoredequation2.set_color_by_tex("2", GREEN)
+        factoredequation2.set_color_by_tex("5", ORANGE)
 
         x = ax.get_x_axis()
         y = ax.get_y_axis()
@@ -115,7 +124,7 @@ class LogScalingExample(Scene):
         
 
 
-        self.play(AddTextLetterByLetter(exp1, time_per_char=0.01))
+        self.play(FadeIn(exp1))
         
 
 
@@ -136,30 +145,48 @@ class LogScalingExample(Scene):
         self.play(equationWithnum.animate.next_to(equation, UP))
         self.play(FadeIn(exp2, shift=DOWN))
 
-       
+        
 
 
 
-        self.play(FacEq1.animate.next_to(factor2, DOWN))
-        self.play(FacEq2.animate.next_to(factor1, DOWN))
+        
+        self.play(FadeIn(factoredetext))
+        self.play(factoredequation2.animate.next_to(factoredetext, UP))
+
+
+
+
 
         self.wait(5)
+
+        screen = Group(equation, equationWithnum, factor1, factor2, exp2,factoredetext,factoredequation2)
+        self.play(FadeOut(screen))
+
+        #h(t) = -4.9t^+10t+3
+
+        graph = ax.plot(lambda x: -4.9*x**2 + 10*x + 3, x_range=[0,5], use_smoothing=False, color = YELLOW)
+
+
+        animations3 = [FadeIn(ax,graph)]
+        self.play(AnimationGroup(*animations3, lag_ratio=0.5))
+        self.play(FadeIn(applicationText))
+        self.wait(5)
+
+        #create a new graph that shows an inverted quadratic, modeling projectiles, marking the vertex and explanations
+        #maybe make a post on the manim discord about limiting ax.plot reach
+
+
          
 
 
 
 
-       #(x + 2) (x - 5)
-       #2 and 5 should move in from factor1 and factor2
-
-        #show factor 1 and 2 convert into factored with cool transformation
-        #maybe use transformMatchingTex
 
 
 
         
 
-        #self.remove(ax,graph)
+    
 
         
         
