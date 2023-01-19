@@ -1,6 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Atom/media/videos/atom/480p15/partial_movie_files/Atom/4266129954_215296571_223132457.mp4'
-file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Atom/media/videos/atom/480p15/partial_movie_files/Atom/1442284246_2783941138_1225717852.mp4'
-file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Atom/media/videos/atom/480p15/partial_movie_files/Atom/1442284246_3817968642_1486800784.mp4'
-file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Atom/media/videos/atom/480p15/partial_movie_files/Atom/1442284246_3785242638_1444888128.mp4'
-file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Atom/media/videos/atom/480p15/partial_movie_files/Atom/1442284246_2358420384_4213885986.mp4'
