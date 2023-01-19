@@ -73,6 +73,7 @@ class LogScalingExample(Scene):
         applicationText = Text("The quadratic can be used to model projectile trajectories.", color=YELLOW, font_size=25).to_edge(DOWN)
        # 10, 13
         factoredetext = Text("Factored Form", color=WHITE, font_size=25).to_edge(DOWN)
+        VertexText = Text("The vertex(v) of the curve can be interpreted as the highest point the projectile will reach.", color=YELLOW, font_size=25).to_edge(UP)
 
         factoredequation2 = MathTex(r"(x + 2)(x - 5)", substrings_to_isolate="2,5")
         factoredequation2.set_color_by_tex("2", GREEN)
@@ -164,16 +165,67 @@ class LogScalingExample(Scene):
 
         #h(t) = -4.9t^+10t+3
 
-        graph = ax.plot(lambda x: -4.9*x**2 + 10*x + 3, x_range=[0,5], use_smoothing=False, color = YELLOW)
+        graph = ax.plot(lambda x: -4.9*x**2 + 10*x + 3, x_range=[0,2.5], use_smoothing=False, color = YELLOW)
 
-
+        G1 = VGroup(ax,graph)
         animations3 = [FadeIn(ax,graph)]
         self.play(AnimationGroup(*animations3, lag_ratio=0.5))
         self.play(FadeIn(applicationText))
+
+
+        
         self.wait(5)
 
-        #create a new graph that shows an inverted quadratic, modeling projectiles, marking the vertex and explanations
-        #maybe make a post on the manim discord about limiting ax.plot reach
+
+
+        d1 = Dot().set_color(ORANGE) 
+        l2 = VMobject()
+        self.add(d1, l2)
+        
+        self.play(MoveAlongPath(d1, graph), rate_func=linear)
+
+        self.wait(2)
+        self.play(FadeOut(d1))
+
+        x = ax.get_x_axis()
+        y = ax.get_y_axis()
+      
+        d2 = Dot().set_color(BLUE)
+
+        self.add(d2.next_to(y.numbers[7]))
+        self.play(d2.animate.shift(RIGHT * 1.1))
+        v = Text(r"v",color=ORANGE, font_size=23).next_to(d2, UP)
+        self.play(Create(v))
+
+       
+
+        
+
+
+
+
+        
+
+      
+
+        self.play(FadeIn(VertexText))
+
+
+        function1 = MathTex(r"h(t) = -4.9t^2 + 10t + 3").next_to(VertexText, DOWN)
+        self.play(Create(function1))
+
+        self.wait(5)
+
+
+
+
+
+
+
+
+
+
+        
 
 
          
