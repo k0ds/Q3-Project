@@ -164,12 +164,13 @@ class LogScalingExample(Scene):
 
         #h(t) = -4.9t^+10t+3
 
-        graph = ax.plot(lambda x: -4.9*x**2 + 10*x + 3, x_range=[0,5], use_smoothing=False, color = YELLOW)
+        graph = ax.plot(lambda x: -4.9*x**2 + 10*x + 3, x_range=[0,10], use_smoothing=False, color = YELLOW)
 
-
+        G1 = VGroup(ax,graph)
         animations3 = [FadeIn(ax,graph)]
         self.play(AnimationGroup(*animations3, lag_ratio=0.5))
         self.play(FadeIn(applicationText))
+        #self.play(G1.animate.scale(.99))
         self.wait(5)
 
         #create a new graph that shows an inverted quadratic, modeling projectiles, marking the vertex and explanations
