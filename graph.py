@@ -65,15 +65,19 @@ class LogScalingExample(Scene):
         factoredequation.set_color_by_tex("2", GREEN)
         factoredequation.set_color_by_tex("5", ORANGE)
         
+       
 
         exp2 = Text("2 and 5 sum to 7 and multiply to 10, which represents a and b of the quadratic.", color=WHITE).scale(0.5).to_edge(UP)
 
         exp1 = Text('The x-intercepts of the graphed quadratic are equal to its factored form', color=BLUE).scale(0.5).to_edge(UP, buff=0.1)
 
-        applicationText = Text("The quadratic can be used to model projectile trajectories.", color=YELLOW, font_size=25).to_edge(DOWN)
+        applicationText = Text("The quadratic can be used to model projectile trajectories.", color=ORANGE, font_size=25).to_edge(DOWN)
+
        # 10, 13
         factoredetext = Text("Factored Form", color=WHITE, font_size=25).to_edge(DOWN)
-        VertexText = Text("The vertex(v) of the curve can be interpreted as the highest point the projectile will reach.", color=YELLOW, font_size=25).to_edge(UP)
+        VertexText = Text("The vertex (v 1,8) of the curve can be interpreted as the highest point the projectile will reach.", color=YELLOW, font_size=20).to_edge(UP)
+        function1 = MathTex(r"h(t) = -4.9t^2 + 10t + 3").next_to(VertexText, DOWN)
+        functionexp = Text("-4.9 serves as the gravitational constant,\n 10 is the initial speed \n 3 is the initial height of the projectile", color=YELLOW, font_size=20).next_to(function1, DOWN)
 
         factoredequation2 = MathTex(r"(x + 2)(x - 5)", substrings_to_isolate="2,5")
         factoredequation2.set_color_by_tex("2", GREEN)
@@ -171,6 +175,8 @@ class LogScalingExample(Scene):
         animations3 = [FadeIn(ax,graph)]
         self.play(AnimationGroup(*animations3, lag_ratio=0.5))
         self.play(FadeIn(applicationText))
+        u1 = Underline(applicationText, color=ORANGE)
+        self.play(Create(u1))
 
 
         
@@ -213,6 +219,10 @@ class LogScalingExample(Scene):
 
         function1 = MathTex(r"h(t) = -4.9t^2 + 10t + 3").next_to(VertexText, DOWN)
         self.play(Create(function1))
+
+        self.play(FadeIn(functionexp))
+
+
 
         self.wait(5)
 
