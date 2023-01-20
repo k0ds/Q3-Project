@@ -216,6 +216,17 @@ class LogScalingExample(Scene):
 
         self.wait(5)
 
+        #show conversion from standard form to vertex form, then done
+        
+        '''
+         y = -4.9t^2 + 10t + 3
+         y = -4.9t^2 + 10t + 5^2 + 3 - 5^2
+         y =  
+
+
+
+        ```
+
 
 
 
