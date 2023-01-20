@@ -77,7 +77,7 @@ class LogScalingExample(Scene):
         factoredetext = Text("Factored Form", color=WHITE, font_size=25).to_edge(DOWN)
         VertexText = Text("The vertex (v 1,8) of the curve can be interpreted as the highest point the projectile will reach.", color=YELLOW, font_size=20).to_edge(UP)
         function1 = MathTex(r"h(t) = -4.9t^2 + 10t + 3").next_to(VertexText, DOWN)
-        functionexp = Text("-4.9 serves as the gravitational constant,\n 10 is the initial speed \n 3 is the initial height of the projectile", color=YELLOW, font_size=20).next_to(function1, DOWN)
+        functionexp = Text("-4.9 serves as the gravitational constant\n 10 is the initial speed \n 3 is the initial height of the projectile", color=GREEN, font_size=20).next_to(function1, DOWN)
 
         factoredequation2 = MathTex(r"(x + 2)(x - 5)", substrings_to_isolate="2,5")
         factoredequation2.set_color_by_tex("2", GREEN)
@@ -95,11 +95,18 @@ class LogScalingExample(Scene):
         a = MathTex(r"a",color=GREEN).next_to(num2, DOWN)
         b = MathTex(r"b",color=ORANGE).next_to(num5, DOWN)
 
+        VertexForm = MathTex(r"y = -4.9(x - 1)^2 + 8",substrings_to_isolate="1,8").to_edge(ORIGIN)
+        VertexForm.set_color_by_tex("1", ORANGE)
+        VertexForm.set_color_by_tex("8", ORANGE)
+
+
+        VertexFormExp = Text("The function in vertex form.", font_size=30, color=WHITE).to_edge(UP)
+        VertexFormExp2 = Text("Notice the vertex x and y coordinates in the vertex form equation (rounded).", font_size=25, color=WHITE).to_edge(DOWN)
 
       
 
         
-        graph = ax.plot(lambda x: x**2 - 7*x + 10, x_range=[0,10], use_smoothing=False, color = YELLOW)
+        graph = ax.plot(lambda x: x**2 - 7*x + 10, x_range=[0,9], use_smoothing=False, color = YELLOW)
 
         
       
@@ -225,6 +232,20 @@ class LogScalingExample(Scene):
 
 
         self.wait(5)
+
+        self.play(FadeOut(G1, VertexText, applicationText, functionexp, u1, d1, v))
+        
+
+        self.play(FadeIn(VertexForm))
+        self.play(FadeIn(VertexFormExp))
+        self.play(FadeIn(VertexFormExp2))
+
+        self.wait(7)
+
+
+
+
+
 
 
 
