@@ -233,6 +233,8 @@ class LogScalingExample(Scene):
 
         self.wait(5)
 
+       
+
         self.play(FadeOut(G1, VertexText, applicationText, functionexp, u1, d1, v))
         
 
