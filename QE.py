@@ -79,7 +79,7 @@ class LogScalingExample(Scene):
         function1 = MathTex(r"h(t) = -4.9t^2 + 10t + 3").next_to(VertexText, DOWN)
         functionexp = Text("-4.9 serves as the gravitational constant\n 10 is the initial speed \n 3 is the initial height of the projectile", color=GREEN, font_size=20).next_to(function1, DOWN)
 
-        factoredequation2 = MathTex(r"(x + 2)(x - 5)", substrings_to_isolate="2,5")
+        factoredequation2 = MathTex(r"(x + 2)(x + 5)", substrings_to_isolate="2,5")
         factoredequation2.set_color_by_tex("2", GREEN)
         factoredequation2.set_color_by_tex("5", ORANGE)
 
@@ -189,7 +189,7 @@ class LogScalingExample(Scene):
         
         self.wait(5)
 
-
+        #TODO: Add stuff about domain and range and then parent function
 
         d1 = Dot().set_color(ORANGE) 
         l2 = VMobject()

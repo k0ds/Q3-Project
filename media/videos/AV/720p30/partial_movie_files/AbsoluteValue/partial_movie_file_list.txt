@@ -1,3 +1,7 @@
 # This file is used internally by FFMPEG.
-file 'file:D:/Programming/Graphics/graphs/Q3-Project/media/videos/AV/720p30/partial_movie_files/AbsoluteValue/274514146_1503892885_223132457.mp4'
-file 'file:D:/Programming/Graphics/graphs/Q3-Project/media/videos/AV/720p30/partial_movie_files/AbsoluteValue/2789044632_1087300578_73582253.mp4'
+file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/AV/720p30/partial_movie_files/AbsoluteValue/274514146_1503892885_223132457.mp4'
+file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/AV/720p30/partial_movie_files/AbsoluteValue/2789044632_1087300578_73582253.mp4'
+file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/AV/720p30/partial_movie_files/AbsoluteValue/2789044632_2358420384_1976293300.mp4'
+file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/AV/720p30/partial_movie_files/AbsoluteValue/2789044632_3918818554_230770454.mp4'
+file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/AV/720p30/partial_movie_files/AbsoluteValue/2789044632_3064489908_4174018169.mp4'
+file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/AV/720p30/partial_movie_files/AbsoluteValue/2789044632_83484024_1927579874.mp4'
