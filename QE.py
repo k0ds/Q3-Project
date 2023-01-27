@@ -54,14 +54,14 @@ class LogScalingExample(Scene):
         factor2.set_color_by_tex('10', BLUE)
 
         FacEq1 = MathTex(r"(x + 2)", substrings_to_isolate="2")
-        FacEq2 = MathTex(r"(x - 5)", substrings_to_isolate="5")
+        FacEq2 = MathTex(r"(x + 5)", substrings_to_isolate="5")
         FacEq1.set_color_by_tex("2", GREEN)
         FacEq2.set_color_by_tex("5", ORANGE)
 
 
 
 
-        factoredequation = MathTex(r"(x + 2)(x - 5)", substrings_to_isolate="2,5").to_edge(UP)
+        factoredequation = MathTex(r"(x + 2)(x + 5)", substrings_to_isolate="2,5").to_edge(UP)
         factoredequation.set_color_by_tex("2", GREEN)
         factoredequation.set_color_by_tex("5", ORANGE)
         
@@ -173,6 +173,8 @@ class LogScalingExample(Scene):
 
         screen = Group(equation, equationWithnum, factor1, factor2, exp2,factoredetext,factoredequation2)
         self.play(FadeOut(screen))
+        num2.set_color(WHITE)
+        num5.set_color(WHITE)
 
         #h(t) = -4.9t^+10t+3
 
@@ -189,7 +191,7 @@ class LogScalingExample(Scene):
         
         self.wait(5)
 
-        #TODO: Add stuff about domain and range and then parent function
+        
 
         d1 = Dot().set_color(ORANGE) 
         l2 = VMobject()
@@ -235,7 +237,7 @@ class LogScalingExample(Scene):
 
        
 
-        self.play(FadeOut(G1, VertexText, applicationText, functionexp, u1, d1, v))
+        self.play(FadeOut(G1, VertexText, applicationText, functionexp, u1, d1, d2, v))
         
 
         self.play(FadeIn(VertexForm))
@@ -243,6 +245,76 @@ class LogScalingExample(Scene):
         self.play(FadeIn(VertexFormExp2))
 
         self.wait(7)
+
+        self.play(FadeOut(VertexForm, VertexFormExp, VertexFormExp2, function1))
+
+
+
+
+        #the parent function: f(x) = x^2
+        # The parent function is inverted and shifted over the x axi
+        #make graph show parent function
+        ax2 = Axes(
+            x_range=[-5, 5, 1],
+            y_range=[-5, 5, 1],
+            tips=False,
+            axis_config={"include_numbers": True, "font_size": 30}
+            #y_axis_config={"scaling": LogBase(custom_labels=True)},
+        )
+
+        G1 = VGroup(ax2,graph)
+        
+
+
+        graph = ax2.plot(lambda x: x**2, x_range=[-5,5], use_smoothing=False, color=ORANGE)
+        animations3 = [FadeIn(ax2,graph)]
+
+
+        parentfunctext = Text("Parent function: ", font_size=25, color=WHITE).to_edge(UR)
+        parentdesctext = Text("The line is inverted and shifted over the y axis to form our function: ", font_size=25, color=WHITE).to_edge(ORIGIN)
+        domaintext = Text("The domain of the function is: (-∞,∞) ", font_size=25, color=ORANGE).to_edge(UP)
+        rangetext = Text("The range: (y ≤ 8)", font_size=25, color=ORANGE).next_to(domaintext, DOWN)
+
+        Parentfunc = MathTex(r"f(x) = x^2").next_to(parentfunctext, DOWN)
+
+        self.play(AnimationGroup(*animations3, lag_ratio=0.5))
+
+        self.play(FadeIn(parentfunctext))
+        self.play(FadeIn(Parentfunc))
+
+        self.wait(3)
+
+
+
+        ax3 = Axes(
+            x_range=[0, 10, 1],
+            y_range=[-8, 10, 2],
+            tips=False,
+            axis_config={"include_numbers": True, "font_size": 30}
+            #y_axis_config={"scaling": LogBase(custom_labels=True)},
+        )
+
+        self.play(FadeOut(ax2))
+        self.play(FadeOut(graph))
+        self.play(FadeIn(parentdesctext))
+        self.wait(3)
+        
+        self.play(FadeOut(parentdesctext))
+
+        graph = ax3.plot(lambda x: -4.9*x**2 + 10*x + 3, x_range=[0,2.5], use_smoothing=False, color = YELLOW)
+
+        self.play(FadeIn(ax3, graph))
+
+        self.play(FadeIn(domaintext))
+        self.play(FadeIn(rangetext))
+        self.wait(5)
+
+
+
+
+
+
+
 
 
 
