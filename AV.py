@@ -16,9 +16,14 @@ class AbsoluteValue(Scene):
         AbValue.set_color_by_tex("h", color=BLUE)
         AbValue.set_color_by_tex("k", color=BLUE)
 
+     
+        formexp = Text("a tells us how far the graph stretches vertically and if it opens up or down,\n h and k tells us how far the graph shifts horizontally and vertically",font_size=25, t2c={'[:1]':ORANGE, '[6:9]':BLUE, 'k':BLUE}).to_edge(DOWN)
+        formexp1 = Text("a tells us how for the graph strectches vertically and if it opens up or down", font_size=20, t2c={'[:1]': ORANGE}).to_edge(DOWN)
+        formexp2 = Text("h and k tells us how far the graph shifts horizontally and vertically", font_size=20, t2c={'[:1]': BLUE}).next_to(formexp1, UP)
 
-        formexp = Text("a tells us how far the graph stretches vertically and if it opens up or down,\n h and k tells us how far the graph shifts horizontally and vertically",font_size=25, t2c={'[:1]':ORANGE, '[5:7]':BLUE, 'k':BLUE}).to_edge(DOWN)
+
         #TODO: Fix the colors of this ^^^
+
         
 
 
@@ -31,10 +36,11 @@ class AbsoluteValue(Scene):
 
         self.play(FadeIn(AbValueText))
         self.play(Create(AbValue))
-        self.play(FadeIn(formexp))
+        self.play(FadeIn(formexp1))
+        self.play(FadeIn(formexp2))
         self.wait(4)
 
-        self.play(FadeOut(AbValue, AbValueText, formexp))
+        self.play(FadeOut(AbValue, AbValueText, formexp1, formexp2))
 
 
 
@@ -69,7 +75,9 @@ class AbsoluteValue(Scene):
         #move this up, fade in graphed version and explain each part
         g1 = VGroup(func2, Dialoague1)
         self.play(g1.animate.to_edge(UP))
+        self.play(FadeIn(ax))
         self.play(FadeIn(graph))
+        #use .add_updater
 
         
 
