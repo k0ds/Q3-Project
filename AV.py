@@ -18,8 +18,8 @@ class AbsoluteValue(Scene):
 
      
         formexp = Text("a tells us how far the graph stretches vertically and if it opens up or down,\n h and k tells us how far the graph shifts horizontally and vertically",font_size=25, t2c={'[:1]':ORANGE, '[6:9]':BLUE, 'k':BLUE}).to_edge(DOWN)
-        formexp1 = Text("a tells us how for the graph strectches vertically and if it opens up or down", font_size=20, t2c={'[:1]': ORANGE}).to_edge(DOWN)
-        formexp2 = Text("h and k tells us how far the graph shifts horizontally and vertically", font_size=20, t2c={'[:1]': BLUE}).next_to(formexp1, UP)
+        formexp1 = Text("a tells us how for the graph strectches vertically and if it opens up or down", font_size=25, t2c={'[:1]': ORANGE}).to_edge(DOWN)
+        formexp2 = Text("h and k tells us how far the graph shifts horizontally and vertically", font_size=25, t2c={'[6:7]': BLUE, '[:1]': '#58adbd'}).next_to(formexp1, UP)
 
 
         #TODO: Fix the colors of this ^^^
@@ -58,9 +58,9 @@ class AbsoluteValue(Scene):
 
         self.play(FadeOut(ax,graph,parentfunc,parentfunctext))
 
-        Dialoague1 = Text("If we wanted to graph this function: ", font_size=25, color=YELLOW)
+        Dialoague1 = Text("If we wanted to graph this function: ", font_size=20, color=YELLOW)
 
-        func2 = MathTex(r"f(x)= -2 |x| + 4", substrings_to_isolate="-2, x, 4").next_to(Dialoague1,DOWN)
+        func2 = MathTex(r"f(x)= -2 |x| + 2", substrings_to_isolate="-2, x, 2").next_to(Dialoague1,DOWN)
         Dialouge2 = Text("We would refer to the form of the function:", font_size=25, color=YELLOW).next_to(func2, DOWN)
 
 
@@ -76,8 +76,17 @@ class AbsoluteValue(Scene):
         g1 = VGroup(func2, Dialoague1)
         self.play(g1.animate.to_edge(UP))
         self.play(FadeIn(ax))
-        self.play(FadeIn(graph))
+
         #use .add_updater
+        self.play(func2.animate.shift(LEFT * 3))
+        graph = ax.plot(lambda x: -2 * np.abs(x) + 2, x_range=[-5,5], use_smoothing=False, color=YELLOW)
+        self.play(FadeIn(graph))
+
+        textexp1 = Text("Notice how ")
+
+
+
+
 
         
 
