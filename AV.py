@@ -77,12 +77,17 @@ class AbsoluteValue(Scene):
         self.play(g1.animate.to_edge(UP))
         self.play(FadeIn(ax))
 
-        #use .add_updater
+       
         self.play(func2.animate.shift(LEFT * 3))
         graph = ax.plot(lambda x: -2 * np.abs(x) + 2, x_range=[-5,5], use_smoothing=False, color=YELLOW)
         self.play(FadeIn(graph))
 
-        textexp1 = Text("Notice how ")
+        textexp1 = Text("Notice that the first term is negative\n making the graph open downwards\n and the start of the graph is at 2", font_size=20, color=WHITE).to_edge(UR)
+        textexp1.shift(DOWN)
+        self.play(FadeIn(textexp1))
+
+        self.wait(2)
+         
 
 
 
