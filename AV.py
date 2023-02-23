@@ -87,6 +87,24 @@ class AbsoluteValue(Scene):
         self.play(FadeIn(textexp1))
 
         self.wait(2)
+
+        self.play(FadeOut(graph,ax,textexp1,Dialoague1,func2))
+        func2.shift(ORIGIN)
+        func2s1 = MathTex(r"-2 = -2|x|")
+        func2s1alt = MathTex(r"2 = -2|x|")
+        func2s2 = MathTex(r"\frac{-2}{2} = x")
+        func2s2alt = MathTex(r"\frac{2}{-2} = x")
+
+        zerotext = Text("If we wanted to find the zero's of the function algebrailaclly, we could do the following: ", color=YELLOW, font_size=20).to_edge(UP)
+        self.play(FadeIn(zerotext))
+        self.play(Transform(func2, func2s1))
+        self.wait(1)
+        self.play(Transform(func2,func2s2))
+        self.wait(3)
+        
+
+
+
          
 
 
