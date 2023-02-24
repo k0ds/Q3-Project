@@ -53,15 +53,15 @@ class LogScalingExample(Scene):
         factor2.set_color_by_tex('5', ORANGE)
         factor2.set_color_by_tex('10', BLUE)
 
-        FacEq1 = MathTex(r"(x + 2)", substrings_to_isolate="2")
-        FacEq2 = MathTex(r"(x + 5)", substrings_to_isolate="5")
+        FacEq1 = MathTex(r"(x - 2)", substrings_to_isolate="2")
+        FacEq2 = MathTex(r"(x - 5)", substrings_to_isolate="5")
         FacEq1.set_color_by_tex("2", GREEN)
         FacEq2.set_color_by_tex("5", ORANGE)
 
 
 
 
-        factoredequation = MathTex(r"(x + 2)(x + 5)", substrings_to_isolate="2,5").to_edge(UP)
+        factoredequation = MathTex(r"(x - 2)(x - 5)", substrings_to_isolate="2,5").to_edge(UP)
         factoredequation.set_color_by_tex("2", GREEN)
         factoredequation.set_color_by_tex("5", ORANGE)
         
@@ -79,7 +79,7 @@ class LogScalingExample(Scene):
         function1 = MathTex(r"h(t) = -4.9t^2 + 10t + 3").next_to(VertexText, DOWN)
         functionexp = Text("-4.9 serves as the gravitational constant\n 10 is the initial speed \n 3 is the initial height of the projectile", color=GREEN, font_size=20).next_to(function1, DOWN)
 
-        factoredequation2 = MathTex(r"(x + 2)(x + 5)", substrings_to_isolate="2,5")
+        factoredequation2 = MathTex(r"(x - 2)(x - 5)", substrings_to_isolate="2,5")
         factoredequation2.set_color_by_tex("2", GREEN)
         factoredequation2.set_color_by_tex("5", ORANGE)
 
@@ -205,10 +205,12 @@ class LogScalingExample(Scene):
         x = ax.get_x_axis()
         y = ax.get_y_axis()
       
-        d2 = Dot().set_color(BLUE)
+       
 
-        self.add(d2.next_to(y.numbers[7]))
-        self.play(d2.animate.shift(RIGHT * 1.1))
+        d2l = ax.coords_to_point(1,8)
+
+        d2 = Dot(point=d2l, color=BLUE)
+        
         v = Text(r"v",color=ORANGE, font_size=23).next_to(d2, UP)
         self.play(Create(v))
 
