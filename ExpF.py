@@ -94,6 +94,23 @@ class ExponentialFunction(Scene):
 
 
         self.wait(3)
+
+        self.play(FadeOut(ax, graph, tracker,wowtext, updater1, number, asymp))
+
+        moorelaw = Text("Moore's law is an example of an application of the exponential function", font_size=20, color=WHITE).to_edge(DOWN)
+
+        ax = Axes(
+            x_range=[0, 30, 5],
+            y_range=[10000, 100000, 10000],
+            tips=False,
+            axis_config={"include_numbers": True, "font_size": 30}
+         )
+        self.play(FadeIn(ax))
+        graph =  ax.plot(lambda x: 10000 * 2**x, use_smoothing=False, color=YELLOW)
+        self.play(FadeIn(graph))
+
+
+        self.play(FadeIn(moorelaw))
         
         
 
