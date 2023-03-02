@@ -28,7 +28,7 @@ class ExponentialFunction(Scene):
         ExpFuncText2 = Text("The input variable is x.\n The exponential curve depends on the value of x.", font_size=25, t2c={'[22:23]': YELLOW, '[72:73]': YELLOW}, color=WHITE).to_edge(DOWN)
         ExpFuncText3 = Text("a is the constant which defines the base of the exponentiation.", font_size=25, color=WHITE).to_edge(DOWN)
 
-        wowtext = Text("notice that for any value of a, the y-intercept is always 1", font_size=25, color=BLUE).to_edge(DOWN)
+        wowtext = Text("For any value of a, the y-intercept is always 1", font_size=25, color=BLUE).to_edge(DOWN)
         asymp = Text("Notice that f(x) never touches 0,\n but approaches asymptotically as  x → -∞", font_size=16, t2c={'[49:64]': ORANGE}, color=WHITE).next_to(ExpFunc2, DOWN)
         
         self.play(FadeIn(ExpFuncText))
@@ -83,11 +83,19 @@ class ExponentialFunction(Scene):
         self.add(graph)
         self.wait()
 
+        def update_graph(mob):
+            mob.become(ax.plot(lambda x: tracker.get_value()**x, use_smoothing=False, color=YELLOW))
+
         self.play(Transform(ExpFunc,ExpFunc3))
         self.play(FadeIn(updater1, number))
         self.wait(2)
-        self.play(tracker.animate(run_time=5).set_value(10))
-        #now figure out a way to have the graph update along number, has to do with lines 71, 72, needs more research
+        graph.add_updater(update_graph)
+        self.play(tracker.animate(run_time=6).set_value(10))
+
+
+        self.wait(3)
+        
+        
 
 
 
