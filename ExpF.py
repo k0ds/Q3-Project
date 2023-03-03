@@ -6,7 +6,7 @@ class ExponentialFunction(Scene):
 
         ax = Axes(
             x_range=[-5, 5, 1],
-            y_range=[-3, 10, 1],
+            y_range=[-1, 10, 1],
             tips=False,
             axis_config={"include_numbers": True, "font_size": 30}
          )
@@ -14,12 +14,17 @@ class ExponentialFunction(Scene):
         ExpFunc = MathTex(r"f(x) = a^x", font_size=70 ,substrings_to_isolate="x")
         ExpFunc2 = MathTex(r"f(x) = 2^x",substrings_to_isolate="x").to_corner(UL)
         ExpFuncExample = MathTex(r"f(x) = 2^x")
-        ExpGrowth = MathTex(r"f(x) = a(1+r)")
-        ExpGrowthExp1 = Text("a = initial amount")
-        ExpGrowthExp2 = Text("r = growth rate")
-        ExpGrowthExp3 = Text("x = number of time intervals")
+        ExpGrowth = MathTex(r"f(x) = a(1+r)", substrings_to_isolate='x,a,r')
+        ExpGrowth.set_color_by_tex("a", YELLOW)
+        ExpGrowth.set_color_by_tex("r", BLUE)
+        ExpGrowth.set_color_by_tex("x", ORANGE)
+
+        ExpGrowthExp1 = Text("a = Initial amount",font_size=20, t2c={'[:1]': YELLOW}).next_to(ExpGrowth, DOWN)
+        ExpGrowthExp2 = Text("r = Growth rate",font_size=20, t2c={'[:1]': BLUE}).next_to(ExpGrowthExp1, DOWN)
+        ExpGrowthExp3 = Text("x = Number of time intervals",font_size=20, t2c={'[:1]': ORANGE}).next_to(ExpGrowthExp2, DOWN)
         DomainText = Text("Domain: ℝ",font_size=17, color=ORANGE).next_to(ExpFunc, RIGHT * 5 + DOWN)
         RangeText = Text("Range: while a > 0, (0, +∞)", font_size=17, color=ORANGE).next_to(DomainText, DOWN)
+        ExpGrowthStuff = VGroup(ExpGrowthExp1, ExpGrowthExp2, ExpGrowthExp3)
 
 
         ExpFunc.set_color_by_tex("x", YELLOW)
@@ -63,7 +68,7 @@ class ExponentialFunction(Scene):
         number = ValueTracker(1)
 
 
-        tracker = ValueTracker(1)
+        tracker = ValueTracker(2)
         number = DecimalNumber(1).scale(0.8).next_to(updater1, RIGHT)
         number.add_updater(lambda m: m.set_value(tracker.get_value()))
         
@@ -96,21 +101,83 @@ class ExponentialFunction(Scene):
         self.wait(3)
 
         self.play(FadeOut(ax, graph, tracker,wowtext, updater1, number, asymp))
+        self.play(ExpFunc.animate.shift(ORIGIN))
+        self.play(ExpFunc.animate.scale(1))
 
-        moorelaw = Text("Moore's law is an example of an application of the exponential function", font_size=20, color=WHITE).to_edge(DOWN)
+        self.play(ReplacementTransform(ExpFunc, ExpGrowth))
+
+      
+
+       
+        
+        
+
+
+
+        #introduce the exp growth function:
+        self.play(FadeIn(ExpGrowth))
+        self.wait(2)
+        self.play(FadeIn(ExpGrowthStuff))
+        self.wait(3)
+        self.play(FadeOut(ExpGrowthStuff))
+
+
+        ExpGrowthExp12 = Text("a = 1000",font_size=20, t2c={'[:1]': YELLOW}).next_to(ExpFunc, DOWN)
+        ExpGrowthExp22 = Text("r = 5.7% = 5.7/100 = 0.057 (rate of interest)",font_size=20, t2c={'[:1]': BLUE}).next_to(ExpGrowthExp1, DOWN)
+        ExpGrowthExp32 = Text("x = Years",font_size=20, t2c={'[:1]': ORANGE}).next_to(ExpGrowthExp2, DOWN)
+        Exp2 = VGroup(ExpGrowthExp12, ExpGrowthExp22, ExpGrowthExp32)
+        compinterest = MathTex(r"f(x) = 1000(1 +0.0057)^x")
+        compinterestgood = compinterest.copy().to_corner(UR)
+
+        compinterestIntro = Text("An example of exponential growth is compound interest:\nWith an initial investment of $1000 at 5.7% annual interest:", font_size=20, color=WHITE).to_edge(UP)
+        
+
+        Title = Text("Compound Interest", font_size=20).next_to(ax, UP)
+
+       
+        self.play(FadeIn(compinterestIntro))
+
+        self.play(Transform(ExpGrowth, compinterest))
+        self.play(FadeIn(Exp2))
+
+        self.wait(3)
+        self.play(FadeOut(Exp2, compinterestIntro, compinterest, ExpGrowth))
+        self.play(FadeIn(compinterestgood))
+        self.play(compinterestgood.animate.scale(0.8))
+        
+        
+        
+
+       
+        self.wait(1)
+
+
+
+        
 
         ax = Axes(
-            x_range=[0, 30, 5],
-            y_range=[10000, 100000, 10000],
+            x_range=[0,  15, 2],
+            y_range=[-1000, 10000, 1000],
             tips=False,
-            axis_config={"include_numbers": True, "font_size": 30}
+            axis_config={"include_numbers": True, "font_size": 25}
          )
+        
+        
+        self.play(FadeIn(Title))
         self.play(FadeIn(ax))
-        graph =  ax.plot(lambda x: 10000 * 2**x, use_smoothing=False, color=YELLOW)
+        graph =  ax.plot(lambda x: 1000 * (1 + 0.0057)**x, use_smoothing=False, color=YELLOW)
+        
+        x_label = ax.get_x_axis_label(Tex("Investment Value").scale(0.50))
+        y_label = ax.get_y_axis_label(Tex("Years").scale(0.50))
+     
+        self.play(FadeIn(x_label, y_label))
+
         self.play(FadeIn(graph))
 
+        self.wait(5)
 
-        self.play(FadeIn(moorelaw))
+
+     
         
         
 
