@@ -14,7 +14,7 @@ class ExponentialFunction(Scene):
         ExpFunc = MathTex(r"f(x) = a^x", font_size=70 ,substrings_to_isolate="x")
         ExpFunc2 = MathTex(r"f(x) = 2^x",substrings_to_isolate="x").to_corner(UL)
         ExpFuncExample = MathTex(r"f(x) = 2^x")
-        ExpGrowth = MathTex(r"f(x) = a(1+r)", substrings_to_isolate='x,a,r')
+        ExpGrowth = MathTex(r"f(x) = a(1+r)^x", substrings_to_isolate='x,a,r')
         ExpGrowth.set_color_by_tex("a", YELLOW)
         ExpGrowth.set_color_by_tex("r", BLUE)
         ExpGrowth.set_color_by_tex("x", ORANGE)
@@ -89,7 +89,7 @@ class ExponentialFunction(Scene):
         self.wait()
 
         def update_graph(mob):
-            mob.become(ax.plot(lambda x: tracker.get_value()**x, use_smoothing=False, color=YELLOW))
+            mob.become(ax.plot(lambda x: tracker.get_value()**x, x_range=[-4,4], use_smoothing=False, color=YELLOW))
 
         self.play(Transform(ExpFunc,ExpFunc3))
         self.play(FadeIn(updater1, number))
@@ -126,7 +126,10 @@ class ExponentialFunction(Scene):
         ExpGrowthExp22 = Text("r = 5.7% = 5.7/100 = 0.057 (rate of interest)",font_size=20, t2c={'[:1]': BLUE}).next_to(ExpGrowthExp1, DOWN)
         ExpGrowthExp32 = Text("x = Years",font_size=20, t2c={'[:1]': ORANGE}).next_to(ExpGrowthExp2, DOWN)
         Exp2 = VGroup(ExpGrowthExp12, ExpGrowthExp22, ExpGrowthExp32)
-        compinterest = MathTex(r"f(x) = 1000(1 +0.0057)^x")
+        compinterest = MathTex(r"f(x) = 1000(1 +0.057)^x", substrings_to_isolate="1000, 0.057, x")
+        compinterest.set_color_by_tex("1000", YELLOW)
+        compinterest.set_color_by_tex("0.057", BLUE)
+        compinterest.set_color_by_tex("x", ORANGE)
         compinterestgood = compinterest.copy().to_corner(UR)
 
         compinterestIntro = Text("An example of exponential growth is compound interest:\nWith an initial investment of $1000 at 5.7% annual interest:", font_size=20, color=WHITE).to_edge(UP)
@@ -156,8 +159,8 @@ class ExponentialFunction(Scene):
         
 
         ax = Axes(
-            x_range=[0,  15, 2],
-            y_range=[-1000, 10000, 1000],
+            x_range=[0,  30, 5],
+            y_range=[0, 4000, 500],
             tips=False,
             axis_config={"include_numbers": True, "font_size": 25}
          )
@@ -165,16 +168,54 @@ class ExponentialFunction(Scene):
         
         self.play(FadeIn(Title))
         self.play(FadeIn(ax))
-        graph =  ax.plot(lambda x: 1000 * (1 + 0.0057)**x, use_smoothing=False, color=YELLOW)
+        graph =  ax.plot(lambda x: 1000 * (1 + 0.057)**x, use_smoothing=False, color=YELLOW)
         
-        x_label = ax.get_x_axis_label(Tex("Investment Value").scale(0.50))
-        y_label = ax.get_y_axis_label(Tex("Years").scale(0.50))
+        x_label = ax.get_y_axis_label(Tex("\$ Investment Value ").scale(0.50))
+        y_label = ax.get_x_axis_label(Tex("Years").scale(0.50))
      
         self.play(FadeIn(x_label, y_label))
+
+        self.play(compinterestgood.animate.shift(DOWN*2))
 
         self.play(FadeIn(graph))
 
         self.wait(5)
+
+
+        self.play(FadeOut(Title, ax, x_label, y_label, graph, compinterestgood))
+        
+        yinttext = Text("We can determine the y-intercept algebraically: ", color=YELLOW, font_size=25).to_edge(UP)
+        yint1 = MathTex(r"x = 0").next_to(yinttext, DOWN)
+
+        compinteresty = MathTex(r"f(0) &= 1000(1 +0.057)^0\\")
+        # r" &=1000*1.057^0 \\", r"&=1000*1\\", r"&=1000"
+        compinteresty2 = MathTex(r" &=1000*1.057^0 \\").next_to(compinteresty, DOWN)
+        compinterest3 = MathTex( r"&=1000*1\\").next_to(compinteresty2, DOWN)
+        compinterest4 = MathTex(r"&=1000").next_to(compinterest3, DOWN)
+        yint2 = Text("The y-intercept is 1000", color=YELLOW, font_size=25).next_to(compinterest4, DOWN)
+        compinterestgood2 = compinterestgood.copy().shift(ORIGIN + UP)
+        self.play(FadeIn(compinterestgood2))
+       
+        self.play(FadeIn(yinttext))
+        self.play(FadeIn(yint1))
+
+        self.play(Transform(compinterestgood2, compinteresty[0]))
+        self.play(FadeOut(yint1))
+        self.play(FadeIn(compinteresty2))
+        self.wait(1)
+        self.play(FadeIn(compinterest3))
+        self.wait(1)
+        self.play(FadeIn(compinterest4))
+        self.wait(1)
+        
+
+
+        self.play(FadeIn(yint2))
+
+        self.wait(3)
+
+        
+
 
 
      
