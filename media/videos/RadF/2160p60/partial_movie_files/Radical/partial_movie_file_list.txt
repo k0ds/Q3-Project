@@ -1,4 +1,5 @@
 # This file is used internally by FFMPEG.
+<<<<<<< HEAD
 file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/1515657723_3046343087_223132457.mp4'
 file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3586720733_2748264453_4108197797.mp4'
 file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3586720733_2358420384_4274403884.mp4'
@@ -45,3 +46,14 @@ file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/
 file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/443341327_1076466279_3503497865.mp4'
 file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/443341327_2119553234_1480674608.mp4'
 file 'file:C:/Users/k0ds/Downloads/Academics/Programming/manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/443341327_2358420384_2058283969.mp4'
+=======
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/139003253_836778529_223132457.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_571109225_2602637052.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_2358420384_2874132888.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_2113711877_3266640832.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_431500917_2003104045.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_4283785984_2003104045.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_2216570666_1571092246.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_1572774832_2054484078.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_2358420384_4237238391.mp4'
+>>>>>>> dc171d3245e3c71b15afeb9194604b21f12490a8
