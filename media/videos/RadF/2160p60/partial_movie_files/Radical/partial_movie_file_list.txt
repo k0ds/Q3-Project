@@ -1,0 +1,10 @@
+# This file is used internally by FFMPEG.
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/139003253_836778529_223132457.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_571109225_2602637052.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_2358420384_2874132888.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_2113711877_3266640832.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_431500917_2003104045.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_4283785984_2003104045.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_2216570666_1571092246.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_1572774832_2054484078.mp4'
+file 'file:D:/Work/Programming/Graphics/Manim/Q3-Project/media/videos/RadF/2160p60/partial_movie_files/Radical/3120117191_2358420384_4237238391.mp4'
